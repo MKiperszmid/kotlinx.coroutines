@@ -49,8 +49,16 @@ def draw(data, plt):
         gen_marker = next(marker_gen)
         res = data[(data.flows == flows)]
 #         plt.plot(res.concurrency, res.score*elements/1000, label="flows={}".format(flows), color=gen_colour, marker=gen_marker)
-        plt.errorbar(x=res.concurrency, y=res.score*elements/1000, yerr=res.score_error*elements/1000, solid_capstyle='projecting',
-                     label="flows={}".format(flows), capsize=4, color=gen_colour, linewidth=2.2)
+        plt.errorbar(
+            x=res.concurrency,
+            y=res.score * elements / 1000,
+            yerr=res.score_error * elements / 1000,
+            solid_capstyle='projecting',
+            label=f"flows={flows}",
+            capsize=4,
+            color=gen_colour,
+            linewidth=2.2,
+        )
 
 langlocale = locale.getdefaultlocale()[0]
 locale.setlocale(locale.LC_ALL, langlocale)
